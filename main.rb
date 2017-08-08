@@ -3,7 +3,7 @@ require "csv"
 
 accounts = {}
 
-CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
+CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
   # Add a key for each account to the accounts Hash.
   account = row["Account"].chomp
 
