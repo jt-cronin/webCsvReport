@@ -1,7 +1,15 @@
 require "sinatra"
 require "csv"
+require "pry"
 
 accounts = {}
+
+@output = "This is what we want outputed"
+get '/' do
+	@output
+	erb :index
+end
+
 
 CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
   # Add a key for each account to the accounts Hash.
@@ -62,3 +70,5 @@ accounts.each do |name, info|
   end
   puts "\n"
 end
+
+
