@@ -19,7 +19,10 @@ get '/Sonia' do
 end
 
 
-
+get '/Priya' do
+	showReport
+	erb :Priya
+end
 
 
 
