@@ -103,3 +103,10 @@ def showSpecific (key)
 		return accounts
 
 end
+
+def convertInput
+#Account,Date,Payee,Category,Outflow,Inflow
+
+	newline = "#{params[:Account]},#{params[:Date]},#{params[:Payee]},#{params[:Category]},#{params[:Outflow]},#{params[:Inflow]}"
+	return newline
+end

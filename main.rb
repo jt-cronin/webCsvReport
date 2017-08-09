@@ -9,6 +9,11 @@ get '/' do
 	erb :index
 end
 
+post '/' do
+	  params.to_s
+
+ erb :index
+end
 
 =begin
 get '/full' do
