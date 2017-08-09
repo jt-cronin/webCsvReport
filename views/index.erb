@@ -6,11 +6,55 @@
 	<title></title>
 </head>
 <body>
-<h1>Welcome to the homepage for the accounts!</h1>
-<p>Click the link below based on what account you would like to see</p>
-<h2> <a href="http://localhost:4567/full"> List all accounts</a></h2>
-<h2> <a href="http://localhost:4567/Sonia">Account information for Sonia</a></h2>
-<h2> <a href="http://localhost:4567/Priya">Account information for Priya</h2>
+
+	<h1>Welcome to the homepage for the accounts!</h1>
+	<p>Click the link below based on what account you would like to see</p>
+
+	<h2> <a href="http://localhost:4567/?report=full"> List all accounts</a></h2>
+	<h2> <a href="http://localhost:4567/?report=Sonia">Account information for Sonia</a></h2>
+	<h2> <a href="http://localhost:4567/?report=Priya">Account information for Priya</a></h2>
+
+	<% if params[:report] == "full"
+
+	 	showReport.each do |name, info| %>  	
+			<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
+		    <table >
+				<th> Category </th> 
+				<th> Total Spent </th>
+				<th> Average Transaction</th>
+				<% info[:categories].each do |category, c_info| %>
+		  		<tr> 
+		  			<td> <%= category %> </td>
+		  			<td>$<%= c_info[:tally].round(2) %></td>
+		  			<td> $<%= c_info[:average_transaction_cost].round(2) %></td>
+		  		</tr>
+			<% end %>
+			</table>
+		<% end 
+	else
+		
+		showSpecific(params[:report]).each do |name, info| %>  	
+			<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
+    		<table >
+				<th> Category </th> 
+				<th> Total Spent </th>
+				<th> Average Transaction</th>
+				<% info[:categories].each do |category, c_info| %>
+		  		<tr> 
+		  			<td> <%= category %> </td>
+		  			<td>$<%= c_info[:tally].round(2) %></td>
+		  			<td> $<%= c_info[:average_transaction_cost].round(2) %></td>
+		  		</tr>
+				<% end %>
+			</table>
+		<% end 
+	end %>
+	
+		
+				
+				
+
+
 </body>
 </html>
 
