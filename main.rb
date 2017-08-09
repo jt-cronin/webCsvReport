@@ -3,14 +3,17 @@ require "csv"
 require "pry"
 require_relative "functions.rb"
 
-get '/full' do
-	showReport
-	erb :full
+
+
+get '/' do 
+	erb :index
 end
 
 
-get '/' do
-	erb :index
+=begin
+get '/full' do
+	showReport
+	erb :full
 end
 
 get '/Sonia' do
@@ -24,6 +27,6 @@ get '/Priya' do
 	erb :Priya
 end
 
-
+=end
 
 
