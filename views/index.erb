@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 
 <% @output.each do |name, info| %>  	
 	<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
@@ -25,9 +26,15 @@
 <% end %>
 
 
+=======
+	<h1> Account: <%= @account_name%>.. Balance: <%= @current_balance%> </h1>
+	<p>========================================================</p>
+	<h2> Category	|	Total Spent		|	Average Transaction</h2>
+	<p>----------------------------------------------------------------------------------------------</p>
+>>>>>>> f06d84e768e5f73b53f0e695c22b6fd20e4dc887
 
 
-	<p>I just want to print out the <%= @output%></p>
+	<p><%= @output%></p>
 </body>
 </html>
 

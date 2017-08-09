@@ -21,7 +21,7 @@ get '/' do
 
 	  # Set the account which is being affected by this iteration.
 	  current_account = accounts[account]
-
+	  @account_name = account
 	  # Clean up outflow and inflow.
 	  outflow = row["Outflow"].gsub(/[,\$]/, "").to_f.round(2)
 	  inflow = row["Inflow"].gsub(/[,\$]/, "").to_f.round(2)
@@ -29,7 +29,7 @@ get '/' do
 
 	  # Keep a tally for current balance of the account.
 	  current_account[:tally] += transaction_amount
-
+	  @current_balance = current_account[:tally]
 	  category = row["Category"].chomp
 
 	  # Initialize category.
