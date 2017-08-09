@@ -56,8 +56,9 @@ def showSpecific (key)
 	accounts = {}
 	CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
 		  # Add a key for each account to the accounts Hash.
-		if row["Account"] = key
-		  account = row["Account"].chomp
+		
+	 account = row["Account"].chomp
+	 if account == key
 
 		  if !accounts[account]
 		    accounts[account] = {
