@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<% showSonia do |name, info| %>  	
+<% showSpecific("Sonia").each do |name, info| %>  	
 	<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
     <table >
 		<th> Category </th> 

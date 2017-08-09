@@ -14,7 +14,7 @@ get '/' do
 end
 
 get '/Sonia' do
-	showSonia
+	showReport
 	erb :Sonia
 end
 

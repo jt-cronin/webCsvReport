@@ -52,10 +52,11 @@ end
 
 
 
-def showSonia
+def showSpecific (key)
 	accounts = {}
 	CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
 		  # Add a key for each account to the accounts Hash.
+		if row["Account"] = key
 		  account = row["Account"].chomp
 
 		  if !accounts[account]
@@ -96,8 +97,8 @@ def showSonia
 		  current_account[:categories][category][:average_transaction_cost] = current_account[:categories][category][:tally] / current_account[:categories][category][:num_transactions]  
 
 		end
+	end
 
-	return accounts[:Sonia]
-
+		return accounts
 
 end
