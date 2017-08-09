@@ -11,7 +11,7 @@ end
 
 post '/' do
 	  params.to_s
-
+	  addToFile(convertInput)
  erb :index
 end
 

@@ -107,12 +107,12 @@ end
 def convertInput
 #Account,Date,Payee,Category,Outflow,Inflow
 
-	newline = "#{params[:Account]},#{params[:Date]},#{params[:Payee]},#{params[:Category]},#{params[:Outflow]},#{params[:Inflow]}"
+	newline = "#{params[:Account]},#{params[:Date]},#{params[:Payee]},#{params[:Category]},$#{params[:Outflow].to_f},$#{params[:Inflow].to_f}"
 	return newline
 end
 
 def addToFile (input)
-File.open("accounts.txt", "a") do |line|
-	line.puts "\r#{input}"
-
+	File.open("test.txt", "a") do |line|
+		line.puts "\r#{input}"
+	end
 end
