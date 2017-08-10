@@ -1,6 +1,6 @@
 # Show the form into which they enter their login credentials.
 get '/login' do
-  erb :"login/login_form  "
+  erb :"login/login_form"
 end
 
 # Process the form that they submitted.
@@ -16,3 +16,4 @@ end
 post '/logout' do
   # Log the user out. (But how?!)
 end
+
