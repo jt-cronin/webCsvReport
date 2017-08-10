@@ -1,102 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="cssrules.css">
+<link rel="stylesheet" type="text/css" href="/style.css">
 
 	<title></title>
 </head>
 <body>
 
-	<h1>Welcome to the homepage for the accounts! <br>
-	Would you like to log in? 
-	<form method="POST" action="/">
-	<fieldset> 
-		Login: <input type="text" name="loginID"> 
-		Password: <input type="password" name="passwordInput">
-		<input type="submit" value="Login">
-	</fieldset>
-	</form>
-	<a href="someURL">New Users</a>
-	</h1>
+	<h1>Welcome to the homepage for the accounts!</h1>
 
-<br><br>
+	<a href="/login">Login</a>
 
-
-	<form method="POST" action="/">
-	<fieldset>
-	Name: <br>
-	<input type="text" name="Account"><br>
-	Date(M/D/YYYY): <br>
-	<input type="text" name="Date"><br>
-	Payee: <br>
-	<input type="text" name="Payee"><br>
-	Category: <br>
-	<input type="text" name="Category"><br>
-	Outflow: <br>
-	<input type="text" name="Outflow"><br>
-	Inflow: <br>
-	<input type="text" name="Inflow"><br>
-	<input type="submit" value="Submit">
-	</fieldset>
-	</form>
-
-
-
-
-
+	<hr>
 
 	<p>Click the link below based on what account you would like to see</p>
 
-	<h2> <a href="http://localhost:4567/?report=full"> List all accounts</a></h2>
-	<h2> <a href="http://localhost:4567/?report=Sonia">Account information for Sonia</a></h2>
-	<h2> <a href="http://localhost:4567/?report=Priya">Account information for Priya</a></h2>
-
-
- 
-	
-
-
-
-	<% if params[:report] == "full"
-
-	 	showReport.each do |name, info| %>  	
-			<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
-		    <table >
-				<th> Category </th> 
-				<th> Total Spent </th>
-				<th> Average Transaction</th>
-				<% info[:categories].each do |category, c_info| %>
-		  		<tr> 
-		  			<td> <%= category %> </td>
-		  			<td>$<%= c_info[:tally].round(2) %></td>
-		  			<td> $<%= c_info[:average_transaction_cost].round(2) %></td>
-		  		</tr>
-			<% end %>
-			</table>
-		<% end 
-	else
-		
-		showSpecific(params[:report]).each do |name, info| %>  	
-			<h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
-    		<table >
-				<th> Category </th> 
-				<th> Total Spent </th>
-				<th> Average Transaction</th>
-				<% info[:categories].each do |category, c_info| %>
-		  		<tr> 
-		  			<td> <%= category %> </td>
-		  			<td>$<%= c_info[:tally].round(2) %></td>
-		  			<td> $<%= c_info[:average_transaction_cost].round(2) %></td>
-		  		</tr>
-				<% end %>
-			</table>
-		<% end 
-	end %>
-	
-		
-				
-				
-
+	<ul>
+		<li><a href="http://localhost:4567/report?report=full"> List all accounts</a></li>
+		<li><a href="http://localhost:4567/report?report=Sonia">Account information for Sonia</a></li>
+		<li><a href="http://localhost:4567/report?report=Priya">Account information for Priya</a></li>
+	</ul>
 
 </body>
 </html>

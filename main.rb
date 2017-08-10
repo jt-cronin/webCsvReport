@@ -3,38 +3,10 @@ require "csv"
 require "pry"
 require_relative "functions.rb"
 
-
-
+# Homepage
 get '/' do 
 	erb :index
 end
 
-post '/' do
-	  params.to_s
-	  addToFile(convertInput)
-
-	  # Redirect to confirmation page?
-
- erb :index
-end
-
-=begin
-get '/full' do
-	showReport
-	erb :full
-end
-
-get '/Sonia' do
-	showReport
-	erb :Sonia
-end
-
-
-get '/Priya' do
-	showReport
-	erb :Priya
-end
-
-=end
-
-
+require_relative "./controllers/login_controller.rb"
+require_relative "./controllers/accounts_controller.rb"
