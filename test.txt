@@ -6,3 +6,4 @@
 kamin,1/2/1992,Corner Market,food,50000000,0
 jh,kjh,kjh,kjh,$300.0,25
 KJH,KJHKJ,HKJHKJH,KJHKJH,$500.0,80
+KJH,KJHKJ,HKJHKJH,KJHKJH,$500.0,$80.0

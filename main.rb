@@ -12,6 +12,9 @@ end
 post '/' do
 	  params.to_s
 	  addToFile(convertInput)
+
+	  # Redirect to confirmation page?
+
  erb :index
 end
 
