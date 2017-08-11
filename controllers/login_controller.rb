@@ -22,7 +22,10 @@ post '/login' do
 	end
 end
 
-post '/logout' do
+get '/log_out' do
+  session.clear
+    erb :"login/log_out"
+
   # Log the user out. (But how?!)
 end
 

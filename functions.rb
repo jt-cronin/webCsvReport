@@ -117,6 +117,26 @@ def addToFile (input)
 end
 
 def loginBar
+	loggedIN =""
+	logOUT =""
+	if session[:id] == nil
+		loggedIN = "<p style=\"text-align:left;\"> <a href=\"/login\">Login</a>"
+		logOUT = "<span style=\"float:right;\"> <a href=\"new_user\" class=\"logout\"\">Create Account</a> </span></p>"
+	else
+		loggedIN = "<p style=\"text-align:left;\"> <a href =\"/\" class=\"login\">Current User: " + session[:id].to_s.chomp + "</a>"
+		logOUT = "<span style=\"float:right;\"> <a href=\"/log_out\" class=\"logout\"\">Log Out</a> </span></p>"
+	end
+	
 
-	return "<h1> HI </h1>"
+	return loggedIN + logOUT
 end
+
+
+
+
+
+
+
+
+
+
