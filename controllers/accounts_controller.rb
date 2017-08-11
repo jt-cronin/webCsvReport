@@ -17,6 +17,4 @@ post '/add_row' do
   addToFile(convertInput)
 
   # Redirect to confirmation page?
-
-  erb :index
 end

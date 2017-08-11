@@ -1,7 +1,6 @@
 # Show the form into which they enter their login credentials.
 enable :sessions
 
-
 get '/login' do
   erb :"login/login_form"
 end
@@ -17,9 +16,9 @@ post '/login' do
   	# If successful, set the session var
   	session[:id] = @username
   # and redirect back to the homepage.
-  	redirect '/'
+  	redirect '/admin'
 	else
-	redirect 'login_form'
+	redirect '/login'
 	end
 end
 
