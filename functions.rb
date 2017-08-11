@@ -115,3 +115,8 @@ def addToFile (input)
 		line.puts "\r#{input}"
 	end
 end
+
+def loginBar
+
+	return "<h1> HI </h1>"
+end
