@@ -8,3 +8,16 @@
 KJH,KJHKJ,HKJHKJH,KJHKJH,$500.0,80
 KJH,KJHKJ,HKJHKJH,KJHKJH,$500.0,$80.0
 fjewiofjweio,jiewofjweio,jfioewfjwio,jfioewjfiowe,$0.0,$0.0
+JT,8/12/2017,Target,Meals,$70.0,$0.0
+John,8/12/2017,apesapso,paosjoij,$80.0,$0.0
+John,oijweo,apojaposi,poaisjpo,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
+,,,,$0.0,$0.0
