@@ -1,16 +1,26 @@
 # Show the form into which they enter their login credentials.
+enable :sessions
+
+
 get '/login' do
   erb :"login/login_form"
 end
 
 # Process the form that they submitted.
 post '/login' do
-  username = params["loginID"]
-  password = params["passwordInput"]
+  @username = params["loginID"]
+  @password = params["passwordInput"]
 
   # Process the login info
-  # If successful, set the session var
+  	if 
+  	@username == 'admin' && @password == 'admin'
+  	# If successful, set the session var
+  	session[:id] = @username
   # and redirect back to the homepage.
+  	redirect '/'
+	else
+	redirect 'login_form'
+	end
 end
 
 post '/logout' do

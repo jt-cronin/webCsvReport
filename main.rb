@@ -2,6 +2,9 @@ require "sinatra"
 require "csv"
 require "pry"
 require_relative "functions.rb"
+enable :sessions
+
+
 
 # Homepage
 get '/' do 
