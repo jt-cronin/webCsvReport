@@ -131,7 +131,15 @@ def loginBar
 	return loggedIN + logOUT
 end
 
-
+def permitAccess
+	access = false
+	if session[:id] == nil
+		access = false
+	else
+		access = true
+	end
+	return access
+end
 
 
 
