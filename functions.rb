@@ -111,7 +111,7 @@ def convertInput
 end
 
 def addToFile (input)
-	File.open("test.txt", "a") do |line|
+	File.open("accounts.txt", "a") do |line|
 		line.puts "\r#{input}"
 	end
 end
