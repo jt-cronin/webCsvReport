@@ -22,10 +22,15 @@ post '/login' do
 	end
 end
 
+get '/access_denied' do
+  erb :"login/access_denied"
+end
+
 get '/log_out' do
   session.clear
     erb :"login/log_out"
 
   # Log the user out. (But how?!)
 end
+
 

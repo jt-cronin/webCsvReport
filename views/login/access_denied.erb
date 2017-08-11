@@ -3,13 +3,16 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/style.css">
 
-	<title></title>
+	<title>Access Denied</title>
 </head>
 <body>
 <%= loginBar %>
 
 
-Would you like to log in? 
+        <h1> Access denied </h1> 
+        <p> Please log in to continue </p>
+
+
 <form method="POST" action="/login">
 <fieldset> 
   Login: <input type="text" name="loginID"> 
@@ -17,8 +20,6 @@ Would you like to log in?
   <input type="submit" value="Login">
 </fieldset>
 </form>
-
-<a href="/new_user">New Users</a>
 
 
 
