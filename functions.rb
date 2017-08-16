@@ -3,7 +3,8 @@ def showReport
 	accounts = {}
 
 	CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
-	  # Add a key for each account to the accounts Hash.
+	 
+	 # Add a key for each account to the accounts Hash.
 	  account = row["Account"].chomp
 
 	  if !accounts[account]
@@ -42,8 +43,8 @@ def showReport
 
 	  # Update average transaction cost.
 	  current_account[:categories][category][:average_transaction_cost] = current_account[:categories][category][:tally] / current_account[:categories][category][:num_transactions]  
-
 	end
+	
 
 	return accounts
 
@@ -55,7 +56,7 @@ def showSpecific (key)
 	accounts = {}
 	CSV.foreach("accounts.txt", {headers: true, return_headers: false}) do |row|
 		  # Add a key for each account to the accounts Hash.
-		
+	
 	 account = row["Account"].chomp
 	 if account == key
 
@@ -98,7 +99,7 @@ def showSpecific (key)
 
 		end
 	end
-
+	
 		return accounts
 
 end
@@ -106,16 +107,37 @@ end
 def convertInput
 #Account,Date,Payee,Category,Outflow,Inflow
 
-	newline = "#{params[:Account]},#{params[:Date]},#{params[:Payee]},#{params[:Category]},$#{params[:Outflow].to_f},$#{params[:Inflow].to_f}"
-	return newline
+	newline = "#{params[:Account].chomp},#{params[:Date].chomp},#{params[:Payee].chomp},#{params[:Category].chomp},$#{params[:Outflow].chomp.to_f},$#{params[:Inflow].chomp.to_f}"
+	return newline.chomp
 end
 
 def addToFile (input)
 	File.open("accounts.txt", "a") do |line|
-		line.puts "\r#{input}"
+		line.puts input.chomp
 	end
 end
 
+def addNewUser(account, password)
+	File.open("users.txt", "a") do |line|
+		line.puts "#{account}, #{password}"
+	end
+end
+def checkLogInInfo(account, password)
+	validUser = false
+	
+	CSV.foreach("users.txt", {headers: true, return_headers: false}) do |row|
+		  if row["Username"].chomp == account && row["Password"].chomp == password
+		  	setUser(row["Username"])
+		  end
+	end
+
+	return validUser
+end
+
+
+def setUser(account)
+	session[:id] = account
+end
 def loginBar
 	loggedIN =""
 	logOUT =""
@@ -123,12 +145,12 @@ def loginBar
 		loggedIN = "<p style=\"text-align:left;\"> <a href=\"/login\">Login</a>"
 		logOUT = "<span style=\"float:right;\"> <a href=\"new_user\" class=\"logout\"\">Create Account</a> </span></p>"
 	else
-		loggedIN = "<p style=\"text-align:left;\"> <a href =\"/\" class=\"login\">Current User: " + session[:id].to_s.chomp + "</a>"
+		loggedIN = "<p style=\"text-align:left;\"> <a href =\"/admin\" class=\"login\">Current User: " + session[:id].to_s.chomp + "</a>"
 		logOUT = "<span style=\"float:right;\"> <a href=\"/log_out\" class=\"logout\"\">Log Out</a> </span></p>"
 	end
 	
 
-	return loggedIN + logOUT
+	return "<div class=\"login\">" + loggedIN + logOUT + "</div>"
 end
 
 def permitAccess

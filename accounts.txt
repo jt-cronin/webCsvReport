@@ -70,3 +70,12 @@ Sonia,1/15/2017,WALGREENS,Medical/Dental,$0.00,$41.25
 "Sonia
 ",1/11/2017,WALGREENS,Medical/Dental,$18.08,$0.00
 JT,8/12/2017,Target,Entertainment,$80.0,$0.0
+kamin,day,ij,lkj,$100.0,$0.0
+kamin,1/1/1111,DKJF,kjh,$100.0,$0.0
+kamin,1/11/1111,me,you,$0.0,$2000.0
+kamin,1/11/1111,me,tyou,$0.0,$10.0
+kamin,1/11/1111,me ,you,$89.0,$78.0
+kamin,9876,jh,jog,$987.0,$987.0
+kamin,jogkjh,kjh,kjhkjh,$98.0,$909.0
+kamin,987,terry,test,$88388.0,$9837249.0
+kamin,1/2/3333,fucked,celebration,$38998.0,$89.0

@@ -5,9 +5,9 @@ end
 
 # Process the form that they submitted.
 post '/new_user' do
-  username = params["newUserID"]
-  password = params["NewUserPassword"]
-
+  addNewUser(params["newUserID"], params["newUserPassword"])
+  session[:id] = params["newUserID"]
+  redirect "/"
   # Process the account info
   # If successful, set the session var
   # and redirect back to the homepage.

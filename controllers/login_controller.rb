@@ -9,7 +9,9 @@ end
 post '/login' do
   @username = params["loginID"]
   @password = params["passwordInput"]
-
+   # if checkLogInInfo(params["loginID"], params["passwordInput"]) == true
+    
+  
   # Process the login info
   	if 
   	@username == 'admin' && @password == 'admin'
