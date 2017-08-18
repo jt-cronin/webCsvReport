@@ -21,11 +21,13 @@
 
     showReport.each do |name, info| %>    
       <h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
-        <table >
-        <th> Category </th> 
-        <th> Total Spent </th>
-        <th> Average Transaction</th>
-        <% info[:categories].each do |category, c_info| %>
+        <table>
+          <tr>
+            <th> Category </th> 
+            <th> Total Spent </th>
+            <th> Average Transaction</th>
+          </tr>
+          <% info[:categories].each do |category, c_info| %>
           <tr> 
             <td> <%= category %> </td>
             <td>$<%= c_info[:tally].round(2) %></td>
@@ -38,11 +40,13 @@
     
     showSpecific(params[:report]).each do |name, info| %>   
       <h1>Account: <%= name %>... Balance: $<%= info[:tally].round(2) %></h1>
-        <table >
-        <th> Category </th> 
-        <th> Total Spent </th>
-        <th> Average Transaction</th>
-        <% info[:categories].each do |category, c_info| %>
+        <table>
+          <tr>
+            <th> Category </th> 
+            <th> Total Spent </th>
+            <th> Average Transaction</th>
+          </tr>
+          <% info[:categories].each do |category, c_info| %>
           <tr> 
             <td> <%= category %> </td>
             <td>$<%= c_info[:tally].round(2) %></td>
