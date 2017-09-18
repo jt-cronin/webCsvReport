@@ -1,4 +1,3 @@
-
 def showReport
 
 	accounts = {}
@@ -100,29 +99,15 @@ def showSpecific (key)
 
 		end
 	end
-		binding.pry
+	
 		return accounts
 
 end
 
-
-def printAccount (accountInfo)  
-	html = ""
-	accountInfo.each do |name, info| 
-		html += "<h1>Account: " + name + "... Balance: $" + info[:tally].round(2).to_s + "</h1><table><tr><th> Category </th><th> Total Spent </th><th> Average Transaction</th></tr>"
-        info[:categories].each do |category, c_info| 
-        	html += "<tr><td>" + category + "</td><td>$" + c_info[:tally].round(2).to_s + "</td><td> $" + c_info[:average_transaction_cost].round(2).to_s + "</td></tr>"
-        end 
-        html += "</table>"
-    end 
-    return html
-end 
-
-
-def convertInput(userInput)
+def convertInput
 #Account,Date,Payee,Category,Outflow,Inflow
 
-	newline = "#{userInput[:Account].chomp},#{userInput[:Date].chomp},#{userInput[:Payee].chomp},#{userInput[:Category].chomp},$#{userInput[:Outflow]},$#{userInput[:Inflow]}"
+	newline = "#{params[:Account].chomp},#{params[:Date].chomp},#{params[:Payee].chomp},#{params[:Category].chomp},$#{params[:Outflow].chomp.to_f},$#{params[:Inflow].chomp.to_f}"
 	return newline.chomp
 end
 
@@ -134,9 +119,30 @@ end
 
 def addNewUser(account, password)
 	File.open("users.txt", "a") do |line|
-		line.puts "#{account}, #{password}"
+		line.puts "#{account.chomp},#{password.chomp}"
 	end
 end
+
+
+
+def setUser(account)
+	session[:id] = account
+end
+
+def loginBar
+	loggedIN =""
+	logOUT =""
+	if session[:id] == nil
+		loggedIN = "<p style=\"text-align:left;\"> <a href=\"/login\">Login</a>"
+		logOUT = "<span style=\"float:right;\"> <a href=\"new_user\" class=\"logout\"\">Create Account</a> </span></p>"
+	else
+		loggedIN = "<p style=\"text-align:left;\"> <a href =\"/admin\" class=\"login\">Current User: " + session[:id].to_s.chomp + "</a>"
+		logOUT = "<span style=\"float:right;\"> <a href=\"/log_out\" class=\"logout\"\">Log Out</a> </span></p>"
+	end
+
+	return "<div class=\"login\">" + loggedIN + logOUT + "</div>"
+end
+
 def checkLogInInfo(account, password)
 	validUser = false
 	
@@ -149,24 +155,23 @@ def checkLogInInfo(account, password)
 	return validUser
 end
 
-
-def setUser(account)
-	session[:id] = account
-end
-def loginBar
-	loggedIN =""
-	logOUT =""
-	if session[:id] == nil
-		loggedIN = "<p style=\"text-align:left;\"> <a href=\"/login\">Login</a>"
-		logOUT = "<span style=\"float:right;\"> <a href=\"new_user\" class=\"logout\"\">Create Account</a> </span></p>"
-	else
-		loggedIN = "<p style=\"text-align:left;\"> <a href =\"/admin\" class=\"login\">Current User: " + session[:id].to_s.chomp + "</a>"
-		logOUT = "<span style=\"float:right;\"> <a href=\"/log_out\" class=\"logout\"\">Log Out</a> </span></p>"
+def verifyLogIn(account, password)
+	validity = false
+	CSV.foreach("users.txt", {headers: true, return_headers: false}) do |row|
+		  if row["Username"].chomp == account 
+		  	accountFound = true
+		  	if row["Password"].chomp == password
+		  		passwordMatch == true
+		  	end
+		  end
 	end
-	
+	if accountFound == true && passwordMatch == true
+		validity = true
 
-	return "<div class=\"login\">" + loggedIN + logOUT + "</div>"
+	return validity
 end
+
+	
 
 def permitAccess
 	access = false
@@ -177,9 +182,3 @@ def permitAccess
 	end
 	return access
 end
-
-
-
-
-
-

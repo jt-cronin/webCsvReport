@@ -9,8 +9,8 @@ get '/admin' do
 end
 # Process the form that adds a new row to the CSV file.
 post '/add_row' do
-  params.to_s
-  addToFile(convertInput)
+  # params.to_s
+  addToFile(convertInput(params))
 
   redirect '/add_row'
 end
